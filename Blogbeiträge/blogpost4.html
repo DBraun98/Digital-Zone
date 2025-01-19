@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogpost Titel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        header {
+            margin-bottom: 40px;
+        }
+        main {
+            line-height: 1.8;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="light">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Blog-Startseite.html">Zurück zum Blog</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
+    </header>
+
+
+    <main>
+        <h1>SEO verstehen und anwenden</h1>
+        <p><strong>Veröffentlicht am:</strong> 17. Januar 2025</p>
+        <article>
+            <p>
+                Suchmaschinenoptimierung (SEO) ist ein unverzichtbares Werkzeug, um die Sichtbarkeit deiner Website zu verbessern. Aber was genau ist SEO, und wie kannst du es effektiv einsetzen? In diesem Beitrag werfen wir einen Blick auf die Grundlagen und Strategien, die dir helfen, deine Website in den Suchmaschinen nach oben zu bringen.
+            </p>
+            <h2>1. Was ist SEO?</h2>
+            <p>
+                SEO steht für "Search Engine Optimization" und umfasst alle Maßnahmen, die darauf abzielen, die Platzierung einer Website in den Suchergebnissen von Google und anderen Suchmaschinen zu verbessern. Ziel ist es, organischen (unbezahlten) Traffic zu steigern.
+            </p>
+            <h2>2. Warum ist SEO wichtig?</h2>
+            <p>
+                Mehr als 90 % der Online-Erfahrungen beginnen mit einer Suchmaschine. Eine gute Platzierung bedeutet mehr Besucher, höhere Glaubwürdigkeit und letztendlich mehr Umsatz oder Erfolg für dein Projekt.
+            </p>
+            <h2>3. Die Grundlagen der On-Page-Optimierung</h2>
+            <p>
+                On-Page-SEO bezieht sich auf die Optimierung der Inhalte und der Struktur deiner Website. Hier sind einige wichtige Punkte:
+            </p>
+            <ul>
+                <li><strong>Relevanter Content:</strong> Erstelle Inhalte, die auf die Bedürfnisse deiner Zielgruppe abgestimmt sind.</li>
+                <li><strong>Titel-Tags und Meta-Beschreibungen:</strong> Nutze ansprechende und keyword-reiche Titel und Beschreibungen.</li>
+                <li><strong>Überschriftenstruktur:</strong> Verwende H1, H2 und H3-Tags sinnvoll, um Inhalte zu gliedern.</li>
+                <li><strong>Interne Verlinkung:</strong> Verlinke relevante Inhalte innerhalb deiner Website, um die Navigation zu verbessern.</li>
+            </ul>
+            <h2>4. Technisches SEO</h2>
+            <p>
+                Technisches SEO stellt sicher, dass Suchmaschinen deine Website effizient crawlen und indexieren können. Hier sind einige technische Aspekte:
+            </p>
+            <ul>
+                <li>Schnelle Ladezeiten</li>
+                <li>Mobile Optimierung</li>
+                <li>SSL-Zertifikate für Sicherheit</li>
+                <li>Saubere URL-Strukturen</li>
+            </ul>
+            <h2>5. Off-Page-Optimierung</h2>
+            <p>
+                Off-Page-SEO umfasst Aktivitäten außerhalb deiner Website, wie den Aufbau von Backlinks. Backlinks von vertrauenswürdigen Seiten signalisieren Suchmaschinen, dass deine Inhalte wertvoll sind.
+            </p>
+            <h2>6. SEO-Tools nutzen</h2>
+            <p>
+                Es gibt viele Tools, die dir helfen können, deine SEO-Bemühungen zu überwachen und zu optimieren, z. B. Google Analytics, Google Search Console oder Ahrefs.
+            </p>
+            <h2>Fazit</h2>
+            <p>
+                SEO ist ein kontinuierlicher Prozess, der Zeit und Engagement erfordert. Indem du die Grundlagen verstehst und die richtigen Strategien anwendest, kannst du die Sichtbarkeit deiner Website nachhaltig steigern und langfristigen Erfolg erzielen.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meine Website. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+
+        (function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        })();
+    </script>
+</body>
+</html>

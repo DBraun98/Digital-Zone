@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blogpost Titel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        header {
+            margin-bottom: 40px;
+        }
+        main {
+            line-height: 1.8;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body class="light">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/Blog-Startseite.html">Zurück zum Blog</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
+    </header>
+
+
+    <main>
+        <h1>Meine Lieblingsbücher und die daraus gewonnenen Erkenntnisse</h1>
+        <p><strong>Veröffentlicht am:</strong> 17. Januar 2025</p>
+        <article>
+            <p>
+                Bücher sind eine unerschöpfliche Quelle von Wissen und Inspiration. Hier möchte ich drei meiner Lieblingsbücher vorstellen und die wichtigsten Erkenntnisse teilen, die ich daraus gewonnen habe. Diese Bücher haben meine Sicht auf Produktivität, Fokus und berufliche Weiterentwicklung maßgeblich geprägt.
+            </p>
+            <h2>1. Atomic Habits von James Clear</h2>
+            <p>
+                Dieses Buch zeigt eindrucksvoll, wie kleine Veränderungen im Alltag zu großen Ergebnissen führen können. James Clear beschreibt, wie Gewohnheiten funktionieren und wie man sie gezielt aufbaut oder ändert.
+            </p>
+            <ul>
+                <li><strong>Erkenntnis:</strong> Der Schlüssel zum Erfolg liegt in kleinen, kontinuierlichen Verbesserungen.</li>
+                <li><strong>Umsetzung:</strong> Gewohnheiten mit sogenannten "Habit Stacking" kombinieren, z. B. eine neue Gewohnheit an eine bestehende koppeln.</li>
+                <li><strong>Zitat:</strong> "Erfolg ist das Produkt täglicher Gewohnheiten, nicht einmaliger Transformationen."</li>
+            </ul>
+            <h2>2. Deep Work von Cal Newport</h2>
+            <p>
+                Cal Newport erklärt, warum tiefe, konzentrierte Arbeit in unserer abgelenkten Welt so wertvoll ist. Er gibt praktische Tipps, wie man in den Zustand der "Deep Work" gelangt und produktiver arbeitet.
+            </p>
+            <ul>
+                <li><strong>Erkenntnis:</strong> Fokus ist eine der wertvollsten Ressourcen unserer Zeit.</li>
+                <li><strong>Umsetzung:</strong> Ablenkungen minimieren, klare Zeitblöcke für tiefes Arbeiten schaffen und diese konsequent einhalten.</li>
+                <li><strong>Zitat:</strong> "Die Fähigkeit, tief zu arbeiten, wird immer seltener und gleichzeitig immer wertvoller."</li>
+            </ul>
+            <h2>3. The Pragmatic Programmer von David Thomas und Andrew Hunt</h2>
+            <p>
+                Ein Klassiker für Softwareentwickler, der jedoch auch weit über die IT hinaus wertvolle Lektionen vermittelt. Das Buch gibt praktische Ratschläge, wie man als Profi denkt und handelt.
+            </p>
+            <ul>
+                <li><strong>Erkenntnis:</strong> Kontinuierliches Lernen und pragmatisches Denken sind essenziell für langfristigen Erfolg.</li>
+                <li><strong>Umsetzung:</strong> Probleme iterativ lösen, stets die beste verfügbare Lösung finden und sich kontinuierlich weiterentwickeln.</li>
+                <li><strong>Zitat:</strong> "Think about your work as a craft, and always strive to improve."</li>
+            </ul>
+            <h2>Fazit</h2>
+            <p>
+                Diese drei Bücher haben mir geholfen, bewusster zu arbeiten, klarer zu denken und meine Zeit effektiver zu nutzen. Ich kann sie jedem empfehlen, der sich persönlich oder beruflich weiterentwickeln möchte.
+            </p>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meine Website. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+
+        (function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        })();
+    </script>
+</body>
+</html>
