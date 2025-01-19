@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Zone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin-left: 75px;
+            margin-right: 75px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        a {
+            text-decoration: underline;
+            color: inherit;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #007bff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        article, section {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light article, body.light section {
+            background-color: #f9f9f9;
+            color: #000000;
+        }
+        body.dark article, body.dark section {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+        .info-box {
+    border: 2px solid #333;
+    padding: 30px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+    max-width: 80%;
+}
+
+@media (max-width: 768px) {
+    .info-box {
+        padding: 20px;
+        margin: 10px;
+    }
+}
+    </style>
+</head>
+<body class="dark">
+    <header>
+        <nav>
+            <ul>
+                <li><strong>Digital Zone</strong></li>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="über mich.html">Über mich</a></li>
+                <li><a href="Blog-Startseite.html">Blog</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="rechtliches.html">Rechtliches</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
+    </header>
+<main>
+    <body>
+        <h1>Über mich</h1>
+       <h4>Ich helfe dir dabei, dein Unternehmen online sichtbarer zu machen. <br> Ob Website, Social Media, Marketing oder Vertrieb – ich stehe dir mit meinem Know-how zur Seite.</h4>
+       <div class="info-box">
+        <p>Du möchtest mehr Kunden gewinnen und dein Unternehmen online erfolgreich positionieren? Als erfahrener [Deine genaue Bezeichnung, z.B. Digitalberater] unterstütze ich dich dabei, deine digitalen Ziele zu erreichen. Von der Erstellung einer ansprechenden Website über die Entwicklung einer erfolgreichen Social-Media-Strategie bis hin zur Optimierung deiner Vertriebsprozesse – ich biete dir ganzheitliche Lösungen aus einer Hand.</p>
+    </div>
+    <p>
+        Ich unterstütze Privatpersonen und Unternehmen in folgenden Bereichen:
+    </p>
+    <ul>
+        <li>Erstellung von ansprechenden und funktionalen Websites</li>
+        <li>Aufbau und Betreuung von Social-Media-Kampagnen</li>
+        <li>Entwicklung zielgruppenspezifischer Marketingstrategien</li>
+        <li>Optimierung deiner Vertriebs- und Vertriebskanäle</li>
+    </ul>
+    <p>
+        Mein Ziel ist es, deine digitale Reise einfach und effektiv zu gestalten. Egal, ob du ganz neu startest oder deinen bestehenden Auftritt verbessern möchtest – ich bin an deiner Seite.
+    </p>
+    <p>
+        Lass uns zusammenarbeiten und deine Ideen Wirklichkeit werden lassen!
+    </p>
+    <button><a href="kontakt.html">Kontakt</a></button>
+         </body>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Digital Zone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>

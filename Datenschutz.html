@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datenschutz</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin: 15% auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="light">
+    <header>
+        <nav>
+            <ul>
+                <li><strong>Digital Zone</strong></li>
+                <li><a href="AGB.html">AGB</a></li>
+                <li><a href="über mich.html">Über mich</a></li>
+                <li><a href="Blog-Startseite.html">Blog</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="rechtliches.html">Rechtliches</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main>
+        <h1>Datenschutzerklärung</h1>
+        <h2>1. Allgemeine Hinweise</h2>
+        <p>
+            Der Schutz Ihrer persönlichen Daten ist uns ein besonderes Anliegen. In dieser Datenschutzerklärung informieren wir Sie über die wichtigsten Aspekte der Datenverarbeitung im Rahmen unserer Website.
+        </p>
+        <h2>2. Verantwortliche Stelle</h2>
+        <p>
+            Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br>
+            [Ihr Name / Ihre Firma]<br>
+            [Straße Hausnummer]<br>
+            [Postleitzahl Ort]<br>
+            [Land]<br>
+            E-Mail: [E-Mail-Adresse]<br>
+            Telefon: [Telefonnummer]
+        </p>
+        <h2>3. Erhebung und Speicherung personenbezogener Daten</h2>
+        <p>
+            Wir erheben, speichern und verarbeiten Ihre personenbezogenen Daten nur, soweit dies zur Bereitstellung unserer Dienste erforderlich ist. Dazu zählen beispielsweise Ihr Name, Ihre E-Mail-Adresse und weitere freiwillige Angaben, die Sie uns übermitteln.
+        </p>
+        <h2>4. Zweck der Datenverarbeitung</h2>
+        <p>
+            Die Verarbeitung Ihrer Daten erfolgt zu folgenden Zwecken:
+        </p>
+        <ul>
+            <li>Zur Bereitstellung unserer Website und deren Funktionen</li>
+            <li>Zur Beantwortung Ihrer Anfragen</li>
+            <li>Zur Erfüllung rechtlicher Verpflichtungen</li>
+        </ul>
+        <h2>5. Weitergabe von Daten</h2>
+        <p>
+            Ihre Daten werden nicht an Dritte weitergegeben, es sei denn, dies ist zur Erfüllung eines Vertrages erforderlich oder Sie haben ausdrücklich eingewilligt.
+        </p>
+        <h2>6. Ihre Rechte</h2>
+        <p>
+            Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung sowie das Recht auf Datenübertragbarkeit. Zudem können Sie eine erteilte Einwilligung jederzeit widerrufen.
+        </p>
+        <h2>7. Kontakt</h2>
+        <p>
+            Wenn Sie Fragen zum Datenschutz haben, können Sie uns unter den oben genannten Kontaktdaten erreichen.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Digital Zone. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+
+        (function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        })();
+    </script>
+</body>
+</html>

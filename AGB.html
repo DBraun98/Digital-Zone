@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGB</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin: 15% auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="light">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="about.html">Über Mich</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><strong>AGB</strong></li>
+                <li><a href="contact.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main>
+        <h1>Allgemeine Geschäftsbedingungen (AGB)</h1>
+        <h2>1. Geltungsbereich</h2>
+        <p>
+            Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge, die über diese Website abgeschlossen werden.
+        </p>
+        <h2>2. Vertragspartner</h2>
+        <p>
+            Der Vertrag kommt zustande mit [Ihr Name/Firma, Adresse].
+        </p>
+        <h2>3. Vertragsabschluss</h2>
+        <p>
+            Mit der Bestellung über diese Website geben Sie ein verbindliches Angebot ab. Der Vertrag kommt zustande, sobald wir Ihre Bestellung schriftlich bestätigen.
+        </p>
+        <h2>4. Preise und Zahlungsbedingungen</h2>
+        <p>
+            Alle Preise verstehen sich inklusive der gesetzlichen Mehrwertsteuer. Die Zahlung erfolgt per [Zahlungsmethoden angeben].
+        </p>
+        <h2>5. Lieferung</h2>
+        <p>
+            Die Lieferung erfolgt innerhalb von [Lieferzeitraum] nach Zahlungseingang. Versandkosten werden separat ausgewiesen.
+        </p>
+        <h2>6. Widerrufsrecht</h2>
+        <p>
+            Verbraucher haben ein gesetzliches Widerrufsrecht. Details hierzu finden Sie in der [Widerrufsbelehrung].
+        </p>
+        <h2>7. Gewährleistung</h2>
+        <p>
+            Es gelten die gesetzlichen Gewährleistungsrechte.
+        </p>
+        <h2>8. Haftung</h2>
+        <p>
+            Wir haften nur für Schäden, die durch grobe Fahrlässigkeit oder Vorsatz entstanden sind.
+        </p>
+        <h2>9. Schlussbestimmungen</h2>
+        <p>
+            Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt der Vertrag im Übrigen wirksam.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Meine Website. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+
+        (function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Zone</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin-left: 75px;
+            margin-right: 75px;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            transition: background-color 0.3s, color 0.3s;
+         }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        a {
+            text-decoration: underline;
+            color: inherit;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #007bff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        article, section {
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light article, body.light section {
+            background-color: #f9f9f9;
+            color: #000000;
+        }
+        body.dark article, body.dark section {
+            background-color: #1e1e1e;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body class="dark">
+    <header>
+        <nav>
+            <ul>
+                <li><strong>Digital Zone</strong></li>
+                <li><a href="index.html">Startseite</a></li>
+                <li><a href="über mich.html">Über mich</a></li>
+                <li><a href="Blog-Startseite.html">Blog</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="rechtliches.html">Rechtliches</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
+    </header>
+<main>
+    <body>
+        <h1>Kontaktiere mich</h1>
+        <form action="https://formspree.io/f/xlddykdz" method="post">
+            <label for="name">Dein Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="email">Deine E-Mail:</label>
+            <input type="email" id="email" name="email" required>
+    
+            <label for="message">Deine Nachricht:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+    
+            <button type="submit">Senden</button>
+        </form>
+    
+        <p>Du erreichst uns auch unter:</p>
+        <p>Telefon: +49 1777511060</p>
+        <p>Adresse: Kirchstraße 1a, 27211 Bassum</p>
+    </body>
+</main>
+
+    <footer>
+        <p>&copy; 2025 Digital Zone. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+    </script>
+</body>
+</html>

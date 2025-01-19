@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <style>
+        body {
+            margin: 15% auto;
+            max-width: 800px;
+            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light {
+            background-color: #ffffff;
+            color: #000000;
+        }
+        body.dark {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body class="light">
+    <header>
+        <nav>
+            <ul>
+                <li><strong>Digital Zone</strong></li>
+                <li><a href="AGB.html">AGB</a></li>
+                <li><a href="über mich.html">Über mich</a></li>
+                <li><a href="Blog-Startseite.html">Blog</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+                <li><a href="rechtliches.html">Rechtliches</a></li>
+            </ul>
+        </nav>
+        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
+    </header>
+
+    <main>
+        <h1>Impressum</h1>
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <p>
+            [Ihr Name / Ihre Firma]<br>
+            [Straße Hausnummer]<br>
+            [Postleitzahl Ort]<br>
+            [Land]
+        </p>
+        <h2>Vertreten durch</h2>
+        <p>
+            [Vorname Nachname]
+        </p>
+        <h2>Kontakt</h2>
+        <p>
+            Telefon: [Telefonnummer]<br>
+            E-Mail: [E-Mail-Adresse]
+        </p>
+        <h2>Umsatzsteuer-ID</h2>
+        <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
+            [Ihre Umsatzsteuer-ID]
+        </p>
+        <h2>Aufsichtsbehörde</h2>
+        <p>
+            [Zuständige Aufsichtsbehörde]<br>
+            [Adresse der Aufsichtsbehörde]
+        </p>
+        <h2>Haftungsausschluss</h2>
+        <p>
+            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
+        </p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Digital Zone. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const isLight = body.classList.contains('light');
+            body.classList.toggle('light', !isLight);
+            body.classList.toggle('dark', isLight);
+            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        }
+
+        (function setInitialTheme() {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.classList.add(savedTheme);
+            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
+        })();
+    </script>
+</body>
+</html>
