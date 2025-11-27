@@ -1,59 +1,194 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digital Zone</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <!-- Google Fonts for beautiful typography -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
+        :root {
+            --primary-color: #3587e3;
+            --accent-color: #faad1e;
+            --dark-bg: #16182a;
+            --dark-fg: #eef0f3;
+            --light-bg: #f3f5fd;
+            --light-fg: #181a26;
+            --card-radius: 1.5rem;
+        }
+        html {
+            font-size: 18px;
+            font-family: 'Montserrat', Arial, sans-serif;
+        }
         body {
-            margin-left: 75px;
-            margin-right: 75px;
-            margin-top: 100px;
-            margin-bottom: 100px;
-            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            margin: 0;
+            background: var(--dark-bg);
+            color: var(--dark-fg);
+            transition: background 0.5s, color 0.5s;
         }
         body.light {
-            background-color: #ffffff;
-            color: #000000;
+            background: var(--light-bg);
+            color: var(--light-fg);
         }
-        body.dark {
-            background-color: #121212;
-            color: #ffffff;
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 8vw;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: #fff;
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+            box-shadow: 0 4px 24px rgba(53,135,227,0.13);
         }
-        a {
-            text-decoration: underline;
-            color: inherit;
-            transition: color 0.3s;
+        header nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
         }
-        a:hover {
-            color: #007bff;
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            position: relative;
+        }
+        header nav a:focus,
+        header nav a:hover {
+            color: var(--accent-color);
+        }
+        header nav li strong {
+            font-size: 1.5rem;
+            letter-spacing: 2px;
         }
         .theme-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
+            background: #fff;
+            color: var(--primary-color);
             border: none;
-            font-size: 1.5rem;
+            border-radius: 50%;
+            font-size: 2rem;
+            width: 2.8rem;
+            height: 2.8rem;
             cursor: pointer;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.08);
+            margin-left: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, color 0.3s;
         }
-        article, section {
-            transition: background-color 0.3s, color 0.3s;
+        .theme-toggle:focus {
+            outline: 2px solid var(--accent-color);
         }
-        body.light article, body.light section {
-            background-color: #f9f9f9;
-            color: #000000;
+        main {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
-        body.dark article, body.dark section {
-            background-color: #1e1e1e;
-            color: #ffffff;
+        .card {
+            background: rgba(26,30,46,0.96);
+            color: #fff;
+            border-radius: var(--card-radius);
+            box-shadow: 0 4px 24px rgba(53,135,227,0.13);
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.5rem;
+            transition: background 0.5s, color 0.5s;
+        }
+        body.light .card {
+            background: #fff;
+            color: var(--light-fg);
+        }
+        h1, h2, h4 {
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            letter-spacing: 1px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .card ul {
+            margin: 1rem 0 0 0;
+            padding: 0 0 0 1.2rem;
+        }
+        .card ul li {
+            margin-bottom: .8rem;
+        }
+        a {
+            color: var(--primary-color);
+            text-decoration: underline;
+            transition: color 0.3s;
+            font-weight: 600;
+        }
+        a:focus, a:hover {
+            color: var(--accent-color);
+            outline: none;
+        }
+        /* Animation for cards */
+        .card {
+            animation: fadeInUp 1s both;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        /* Responsive Design */
+        @media (max-width: 700px) {
+            header, main {
+                padding: 1rem 3vw;
+            }
+            .card {
+                padding: 1.2rem 1.2rem;
+            }
+        }
+        /* Accessibility: High contrast focus ring */
+        a:focus-visible, button:focus-visible {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+        /* Skip link for accessibility */
+        .skip-link {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+        .skip-link:focus {
+            position: static;
+            padding: 1em;
+            background: var(--accent-color);
+            color: #fff;
+            width: auto;
+            height: auto;
+            font-size: 1.2rem;
+            border-radius: .5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: #fff;
+            border-top-left-radius: 2rem;
+            border-top-right-radius: 2rem;
+            font-size: 1rem;
+            margin-top: 3rem;
+            box-shadow: 0 -2px 13px rgba(53,135,227,0.13);
         }
     </style>
 </head>
 <body class="dark">
+    <a href="#main-content" class="skip-link">Zum Hauptinhalt springen</a>
     <header>
-        <nav>
+        <nav aria-label="Seiten Navigation">
             <ul>
                 <li><strong>Digital Zone</strong></li>
                 <li><a href="index.html">Startseite</a></li>
@@ -63,31 +198,29 @@
                 <li><a href="rechtliches.html">Rechtliches</a></li>
             </ul>
         </nav>
-        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
+        <button class="theme-toggle" aria-label="Motiv wechseln (Hell/Dunkel)" title="Motiv wechseln" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
     </header>
 
-    <main>
-        <article>
-            <h1>Wilkommen auf meiner Website!</h1>
-            <p>Dies ist meine Website auf der du mehr über mich, meine Interessen und meine Fähigkeiten erfährst.</p>
-        </article>
-
-        <section>
-            <h2>Top Articles</h2>
+    <main id="main-content" tabindex="-1">
+        <section class="card" aria-labelledby="wilkommen">
+            <h1 id="wilkommen">Willkommen auf meiner Website!</h1>
+            <p>Dies ist meine Website, auf der du mehr über mich, meine Interessen und meine Fähigkeiten erfährst.</p>
+        </section>
+        <section class="card" aria-labelledby="top-articles">
+            <h2 id="top-articles"><i class="fas fa-fire"></i> Top Articles</h2>
             <ul>
-                <li><a href="#">Wieso brauchst es so viel Technologie?</a></li>
-                <li><a href="#">10 Produktivitätstipps</a></li>
-                <li><a href="#">Effektives Vertriebsmanagement leicht gemacht</a></li>
+                <li><a href="#" tabindex="0">Wieso braucht es so viel Technologie?</a></li>
+                <li><a href="#" tabindex="0">10 Produktivitätstipps</a></li>
+                <li><a href="#" tabindex="0">Effektives Vertriebsmanagement leicht gemacht</a></li>
             </ul>
         </section>
-
-        <section>
-            <h2><a href="Bücherliste.html">Bücher Liste</a></h2>
+        <section class="card" aria-labelledby="buecherliste">
+            <h2 id="buecherliste"><a href="Bücherliste.html">Bücher Liste</a></h2>
             <h4>Meine Top Auswahl</h4>
             <ul>
-                <li><strong>"Atomic Habits"</strong> by James Clear</li>
-                <li><strong>"Deep Work"</strong> by Cal Newport</li>
-                <li><strong>"The Pragmatic Programmer"</strong> by David Thomas and Andrew Hunt</li>
+                <li><strong>"Atomic Habits"</strong> von James Clear</li>
+                <li><strong>"Deep Work"</strong> von Cal Newport</li>
+                <li><strong>"The Pragmatic Programmer"</strong> von David Thomas und Andrew Hunt</li>
             </ul>
         </section>
     </main>
@@ -97,13 +230,25 @@
     </footer>
 
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const isLight = body.classList.contains('light');
-            body.classList.toggle('light', !isLight);
-            body.classList.toggle('dark', isLight);
-            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        // Theme Toggle: maintains preference in localStorage + switches icons for accessibility
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        function setTheme(isLight) {
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            themeToggleBtn.innerHTML = isLight
+                ? '<i class="fas fa-moon"></i>'
+                : '<i class="fas fa-sun"></i>';
         }
+        function toggleTheme() {
+            const isLight = document.body.classList.contains('light');
+            setTheme(!isLight);
+            localStorage.setItem('theme', !isLight ? 'light' : 'dark');
+        }
+        // Persist theme preference
+        (function() {
+            let theme = localStorage.getItem('theme');
+            setTheme(theme === 'light');
+        })();
     </script>
 </body>
 </html>
