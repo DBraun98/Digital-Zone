@@ -1,104 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <title>Kontakt | Digital Zone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Zone</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
-        body {
-            margin-left: 75px;
-            margin-right: 75px;
-            margin-top: 100px;
-            margin-bottom: 100px;
-            transition: background-color 0.3s, color 0.3s;
-         }
-        body.light {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        body.dark {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        a {
-            text-decoration: underline;
-            color: inherit;
-            transition: color 0.3s;
-        }
-        a:hover {
-            color: #007bff;
-        }
-        .theme-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        article, section {
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.light article, body.light section {
-            background-color: #f9f9f9;
-            color: #000000;
-        }
-        body.dark article, body.dark section {
-            background-color: #1e1e1e;
-            color: #ffffff;
-        }
+    :root { --primary-color: #3587e3; --accent-color: #faad1e; --dark-bg: #16182a; --dark-fg: #eef0f3; --light-bg: #f3f5fd; --light-fg: #181a26; --card-radius: 1.3rem;}
+    body { min-height:100vh; margin:0; background:var(--dark-bg); color:var(--dark-fg); font-family:'Montserrat',Arial,sans-serif; transition:background 0.5s, color 0.5s;}
+    body.light{background:var(--light-bg);color:var(--light-fg);}
+    header, footer {background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+        color:#fff; border-radius:1.2rem; box-shadow:0 2px 12px rgba(53,135,227,0.12); margin:0.5rem 0; padding:1.2rem 0.5rem; text-align:center;}
+    .theme-toggle { background:#fff; color:var(--primary-color); border:none; border-radius:50%; font-size:1.7rem; width:2.4rem; height:2.4rem; cursor:pointer; transition:background 0.3s, color 0.3s; box-shadow:0 2px 8px rgba(53,135,227,0.13);
+    position: absolute; right: 1.5rem; top: 1.3rem; display: flex; align-items: center; justify-content: center;}
+    main { max-width: 700px; margin:2.2rem auto; background:rgba(26,30,46,0.96); color:#fff; border-radius:var(--card-radius); box-shadow:0 4px 18px rgba(53,135,227,0.11); padding:2.3rem 1.6rem;}
+    body.light main{background:#fff;color:var(--light-fg);}
+    h1{margin-bottom:1rem;}
+    p{margin-bottom:1.2rem; line-height:1.7;}
+    .contact-list{list-style:none;padding:0;margin:0;}
+    .contact-list li{margin-bottom:1.3rem;}
+    .contact-list i{margin-right:0.7rem;color:var(--accent-color);}
     </style>
 </head>
 <body class="dark">
-    <header>
-        <nav>
-            <ul>
-                <li><strong>Digital Zone</strong></li>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="über mich.html">Über mich</a></li>
-                <li><a href="Blog-Startseite.html">Blog</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="rechtliches.html">Rechtliches</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
-    </header>
+<header>
+    <h1><i class="fas fa-envelope"></i> Kontakt</h1>
+    <button class="theme-toggle" aria-label="Motiv wechseln (Hell/Dunkel)" title="Motiv wechseln" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+</header>
 <main>
-    <body>
-        <h1>Kontaktiere mich</h1>
-        <form action="https://formspree.io/f/xlddykdz" method="post">
-            <label for="name">Dein Name:</label>
-            <input type="text" id="name" name="name" required>
-    
-            <label for="email">Deine E-Mail:</label>
-            <input type="email" id="email" name="email" required>
-    
-            <label for="message">Deine Nachricht:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-    
-            <button type="submit">Senden</button>
-        </form>
-    
-        <p>Du erreichst uns auch unter:</p>
-        <p>Telefon: +49 1777511060</p>
-        <p>Adresse: Kirchstraße 1a, 27211 Bassum</p>
-    </body>
+    <p>Wir freuen uns über Ihre Nachricht! Schreiben Sie uns gerne:</p>
+    <ul class="contact-list">
+        <li><i class="fas fa-envelope"></i> E-Mail: <a href="mailto:kontakt@digital-zone.de">kontakt@digital-zone.de</a></li>
+        <li><i class="fab fa-twitter"></i> Twitter: <a href="https://twitter.com/digital_zone" target="_blank">@digital_zone</a></li>
+    </ul>
+    <p>Alternativ erreichen Sie uns auch über das <a href="ueber.html">Team</a>.</p>
 </main>
-
-    <footer>
-        <p>&copy; 2025 Digital Zone. All rights reserved.</p>
-    </footer>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const isLight = body.classList.contains('light');
-            body.classList.toggle('light', !isLight);
-            body.classList.toggle('dark', isLight);
-            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
-        }
-    </script>
+<footer>
+    &copy; 2025 Digital Zone
+</footer>
+<script>
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    function setTheme(isLight) {
+        document.body.classList.toggle('light', isLight);
+        document.body.classList.toggle('dark', !isLight);
+        themeToggleBtn.innerHTML = isLight?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
+    }
+    function toggleTheme() {
+        const isLight = document.body.classList.contains('light');
+        setTheme(!isLight);
+        localStorage.setItem('theme', !isLight ? 'light' : 'dark');
+    }
+    (() => { let theme = localStorage.getItem('theme'); setTheme(theme === 'light'); })();
+</script>
 </body>
 </html>
