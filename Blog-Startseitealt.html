@@ -2,103 +2,124 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <title>Digital Zone Blog Übersicht</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Zone</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
-        body {
-            margin-top: 100px;
-            margin: 15% auto;
-            max-width: 800px;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
+        :root {
+            --primary-color: #3587e3;
+            --accent-color: #faad1e;
+            --dark-bg: #16182a;
+            --dark-fg: #eef0f3;
+            --light-bg: #f3f5fd;
+            --light-fg: #181a26;
+            --card-radius: 1.3rem;
         }
-        body.light {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        body.dark {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .theme-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
+        html { font-size: 18px; font-family: 'Montserrat', Arial, sans-serif; }
+        body { min-height: 100vh; margin: 0; background: var(--dark-bg); color: var(--dark-fg); transition: background 0.5s, color 0.5s; }
+        body.light { background: var(--light-bg); color: var(--light-fg); }
+        header, footer {
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color: #fff;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(53,135,227,0.12);
+            margin: 0.5rem 0;
+            padding: 1.2rem 0.5rem;
             text-align: center;
         }
-        .blog-list {
-            list-style: none;
-            padding: 0;
+        .theme-toggle {
+            background: #fff; color: var(--primary-color);
+            border: none; border-radius: 50%;
+            font-size: 1.7rem; width: 2.4rem; height: 2.4rem; cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            box-shadow: 0 2px 8px rgba(53,135,227,0.13);
+            margin-left: 0.5rem;
+            float: right;
+            position: absolute; right: 1.5rem; top: 1.5rem;
+            display: flex; align-items: center; justify-content: center;
         }
-        .blog-list li {
-            margin-bottom: 20px;
+        main { padding: 2rem 0; }
+        h1 { font-size: 2rem; margin-bottom: 2rem; }
+        .blog-card-list { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;}
+        .blog-card {
+            background: rgba(26,30,46,0.96); color: #fff;
+            border-radius: var(--card-radius); box-shadow: 0 4px 18px rgba(53,135,227,0.11);
+            width: 320px; max-width: 95vw;
+            padding: 1.5rem 1.3rem;
+            transition: background 0.5s, color 0.5s, box-shadow 0.3s;
+            display: flex; flex-direction: column; align-items: flex-start;
+            text-decoration: none;
         }
-        .blog-list a {
-            text-decoration: underline;
-            color: inherit;
-            transition: color 0.3s;
+        body.light .blog-card { background: #fff; color: var(--light-fg);}
+        .blog-card:hover { box-shadow: 0 6px 26px rgba(53,135,227,0.22); background: var(--primary-color); color: #fff;}
+        .blog-card .blog-title { font-size: 1.18rem; font-weight: 700; margin-bottom: 0.7rem;}
+        .blog-card .blog-meta { color: var(--accent-color); font-size: 0.9rem; margin-bottom: 1rem;}
+        .blog-card .blog-excerpt { font-size: 1rem; margin-bottom: 0.5rem;}
+        .blog-card .read-link { color: var(--accent-color); font-weight: 600; text-decoration: underline; }
+        @media (max-width: 900px) {
+            .blog-card-list { flex-direction: column; align-items: center;}
         }
-        .blog-list a:hover {
-            color: #007bff;
-        }
+        footer { font-size: 1rem;}
     </style>
 </head>
-<body class="light">
+<body class="dark">
     <header>
-        <nav>
-            <ul>
-                <li><strong>Digital Zone</strong></li>
-                <li><a href="index.html">Startseite</a></li>
-                <li><a href="über mich.html">Über mich</a></li>
-                <li><a href="Blog-Startseite.html">Blog</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="rechtliches.html">Rechtliches</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Toggle theme" onclick="toggleTheme()">☀️</button>
+        <h1>Digital Zone Blog</h1>
+        <button class="theme-toggle" aria-label="Motiv wechseln (Hell/Dunkel)" title="Motiv wechseln" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
     </header>
-
     <main>
-        <h1>Blog</h1>
-        <p>Willkommen auf meiner Blog-Seite! Hier findest du spannende Beiträge zu verschiedenen Themen.</p>
-        <ul class="blog-list">
-            <li><a href="Blogbeiträge/blogpost1.html">Blogpost 1: Wieso braucht es so viel Technologie?</a></li>
-            <li><a href="Blogbeiträge/blogpost2.html">Blogpost 2: 10 Produktivitätstipps</a></li>
-            <li><a href="Blogbeiträge/blogpost3.html">Blogpost 3: Effektives Vertriebsmanagement leicht gemacht</a></li>
-            <li><a href="Blogbeiträge/blogpost4.html">Blogpost 4: SEO verstehen und anwenden</a></li>
-            <li><a href="Blogbeiträge/blogpost5.html">Blogpost 5: Meine lieblingsbücher und die daraus gewonnen Erkenntnisse</a></li>
-        </ul>
+        <section>
+            <div class="blog-card-list">
+                <a href="Blogbeiträge/blogpost1.html" class="blog-card">
+                    <div class="blog-title"><i class="fab fa-digital-ocean"></i> Wieso braucht es so viel Technologie?</div>
+                    <div class="blog-meta"><i class="far fa-calendar-alt"></i> 17. Januar 2025</div>
+                    <div class="blog-excerpt">Warum ist Technologie in unserem Alltag so zentral? Ein Blick auf die Gründe hinter der digitalen Expansion.</div>
+                    <div class="read-link">Lesen <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="Blogbeiträge/blogpost2.html" class="blog-card">
+                    <div class="blog-title"><i class="fas fa-wifi"></i> Die Zukunft der künstlichen Intelligenz</div>
+                    <div class="blog-meta"><i class="far fa-calendar-alt"></i> 25. Januar 2025</div>
+                    <div class="blog-excerpt">Wie KI unseren Alltag und unsere Arbeitswelt verändert – Chancen und Herausforderungen.</div>
+                    <div class="read-link">Lesen <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="Blogbeiträge/blogpost3.html" class="blog-card">
+                    <div class="blog-title"><i class="fas fa-mobile-alt"></i> Mobilität: Trends und Innovationen</div>
+                    <div class="blog-meta"><i class="far fa-calendar-alt"></i> 2. Februar 2025</div>
+                    <div class="blog-excerpt">Neue Technologien im Bereich Mobilität: Was erwartet uns in den kommenden Jahren?</div>
+                    <div class="read-link">Lesen <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="Blogbeiträge/blogpost4.html" class="blog-card">
+                    <div class="blog-title"><i class="fas fa-shield-alt"></i> Datenschutz in der digitalen Welt</div>
+                    <div class="blog-meta"><i class="far fa-calendar-alt"></i> 10. Februar 2025</div>
+                    <div class="blog-excerpt">Wie schützt man seine Daten in Zeiten von Big Data und Überwachung?</div>
+                    <div class="read-link">Lesen <i class="fas fa-arrow-right"></i></div>
+                </a>
+                <a href="Blogbeiträge/blogpost5.html" class="blog-card">
+                    <div class="blog-title"><i class="fas fa-globe-europe"></i> Digitalisierung und Nachhaltigkeit</div>
+                    <div class="blog-meta"><i class="far fa-calendar-alt"></i> 18. Februar 2025</div>
+                    <div class="blog-excerpt">Wie kann Digitalisierung den Weg zu einer nachhaltigeren Zukunft ebnen?</div>
+                    <div class="read-link">Lesen <i class="fas fa-arrow-right"></i></div>
+                </a>
+            </div>
+        </section>
     </main>
-
     <footer>
-        <p>&copy; 2025 Digital Zone. Alle Rechte vorbehalten.</p>
+        &copy; 2025 Digital Zone Blog &middot; <a href="impressum.html" style="color:#fff;text-decoration:underline;">Impressum</a>
     </footer>
-
     <script>
-        function toggleTheme() {
-            const body = document.body;
-            const isLight = body.classList.contains('light');
-            body.classList.toggle('light', !isLight);
-            body.classList.toggle('dark', isLight);
-            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
+        const themeToggleBtn = document.querySelector('.theme-toggle');
+        function setTheme(isLight) {
+            document.body.classList.toggle('light', isLight);
+            document.body.classList.toggle('dark', !isLight);
+            themeToggleBtn.innerHTML = isLight?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
         }
-
-        (function setInitialTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.classList.add(savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
-        })();
+        function toggleTheme() {
+            const isLight = document.body.classList.contains('light');
+            setTheme(!isLight);
+            localStorage.setItem('theme', !isLight ? 'light' : 'dark');
+        }
+        (() => { let theme = localStorage.getItem('theme'); setTheme(theme === 'light'); })();
     </script>
 </body>
 </html>
