@@ -2,113 +2,53 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+    <title>Impressum & Datenschutz | Digital Zone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impressum</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
     <style>
-        body {
-            margin: 15% auto;
-            max-width: 800px;
-            padding: 20px;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.light {
-            background-color: #ffffff;
-            color: #000000;
-        }
-        body.dark {
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .theme-toggle {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        h1 {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        h2 {
-            margin-top: 20px;
-        }
-        p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
+        /* Modern container and serious look for legal page */
+        :root { --primary-color: #3587e3; --accent-color: #faad1e;
+          --dark-bg: #16182a; --dark-fg: #eef0f3; --light-bg: #f3f5fd; --light-fg: #181a26; --card-radius: 1.3rem;}
+        body { min-height:100vh; margin:0; background:var(--dark-bg); color:var(--dark-fg); font-family:'Montserrat',Arial,sans-serif; transition:background 0.5s, color 0.5s;}
+        body.light{background:var(--light-bg);color:var(--light-fg);}
+        header, footer {background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            color:#fff; border-radius:1.2rem; box-shadow:0 2px 12px rgba(53,135,227,0.12); margin:0.5rem 0; padding:1.2rem 0.5rem; text-align:center;}
+        .theme-toggle { background:#fff; color:var(--primary-color); border:none; border-radius:50%; font-size:1.7rem; width:2.4rem; height:2.4rem; cursor:pointer; transition:background 0.3s, color 0.3s; box-shadow:0 2px 8px rgba(53,135,227,0.13);
+        position: absolute; right: 1.5rem; top: 1.3rem; display: flex; align-items: center; justify-content: center;}
+        main { max-width: 700px; margin:2.2rem auto; background:rgba(26,30,46,0.96); color:#fff; border-radius:var(--card-radius); box-shadow:0 4px 18px rgba(53,135,227,0.11); padding:2.3rem 1.6rem;}
+        body.light main{background:#fff;color:var(--light-fg);}
     </style>
 </head>
-<body class="light">
-    <header>
-        <nav>
-            <ul>
-                <li><strong>Digital Zone</strong></li>
-                <li><a href="AGB.html">AGB</a></li>
-                <li><a href="über mich.html">Über mich</a></li>
-                <li><a href="Blog-Startseite.html">Blog</a></li>
-                <li><a href="kontakt.html">Kontakt</a></li>
-                <li><a href="rechtliches.html">Rechtliches</a></li>
-            </ul>
-        </nav>
-        <button class="theme-toggle" aria-label="Thema umschalten" onclick="toggleTheme()">☀️</button>
-    </header>
-
-    <main>
-        <h1>Impressum</h1>
-        <h2>Angaben gemäß § 5 TMG</h2>
-        <p>
-            [Ihr Name / Ihre Firma]<br>
-            [Straße Hausnummer]<br>
-            [Postleitzahl Ort]<br>
-            [Land]
-        </p>
-        <h2>Vertreten durch</h2>
-        <p>
-            [Vorname Nachname]
-        </p>
-        <h2>Kontakt</h2>
-        <p>
-            Telefon: [Telefonnummer]<br>
-            E-Mail: [E-Mail-Adresse]
-        </p>
-        <h2>Umsatzsteuer-ID</h2>
-        <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>
-            [Ihre Umsatzsteuer-ID]
-        </p>
-        <h2>Aufsichtsbehörde</h2>
-        <p>
-            [Zuständige Aufsichtsbehörde]<br>
-            [Adresse der Aufsichtsbehörde]
-        </p>
-        <h2>Haftungsausschluss</h2>
-        <p>
-            Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.
-        </p>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Digital Zone. Alle Rechte vorbehalten.</p>
-    </footer>
-
-    <script>
-        function toggleTheme() {
-            const body = document.body;
-            const isLight = body.classList.contains('light');
-            body.classList.toggle('light', !isLight);
-            body.classList.toggle('dark', isLight);
-            document.querySelector('.theme-toggle').textContent = isLight ? '🌙' : '☀️';
-        }
-
-        (function setInitialTheme() {
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            document.body.classList.add(savedTheme);
-            document.querySelector('.theme-toggle').textContent = savedTheme === 'light' ? '🌙' : '☀️';
-        })();
-    </script>
+<body class="dark">
+<header>
+    <h1><i class="fas fa-gavel"></i> Impressum & Datenschutz</h1>
+    <button class="theme-toggle" aria-label="Motiv wechseln (Hell/Dunkel)" title="Motiv wechseln" onclick="toggleTheme()"><i class="fas fa-sun"></i></button>
+</header>
+<main>
+    <h2>Angaben gemäß § 5 TMG</h2>
+    <p>Digital Zone<br>Max Mustermann<br>Musterstraße 1<br>12345 Musterstadt<br>Email: kontakt@digital-zone.de</p>
+    <h2>Haftungsausschluss</h2>
+    <p>Die Inhalte dieser Webseite wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. [...]</p>
+    <h2>Datenschutzerklärung</h2>
+    <p>Die Nutzung dieser Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. [...]</p>
+</main>
+<footer>
+    &copy; 2025 Digital Zone
+</footer>
+<script>
+    const themeToggleBtn = document.querySelector('.theme-toggle');
+    function setTheme(isLight) {
+        document.body.classList.toggle('light', isLight);
+        document.body.classList.toggle('dark', !isLight);
+        themeToggleBtn.innerHTML = isLight?'<i class="fas fa-moon"></i>':'<i class="fas fa-sun"></i>';
+    }
+    function toggleTheme() {
+        const isLight = document.body.classList.contains('light');
+        setTheme(!isLight);
+        localStorage.setItem('theme', !isLight ? 'light' : 'dark');
+    }
+    (() => { let theme = localStorage.getItem('theme'); setTheme(theme === 'light'); })();
+</script>
 </body>
 </html>
